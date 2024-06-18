@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null"  pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3099abe1-14c7-4ce4-8121-0e0410739a6b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     householdinfo.`representative` AS householdinfo_representative,
+     householdinfo.`house_number` AS householdinfo_house_number,
+     householdinfo.`zone` AS householdinfo_zone,
+     householdinfo.`phoneNumber` AS householdinfo_phoneNumber,
+     householdinfo.`householdMembers` AS householdinfo_householdMembers,
+     householdinfo.`employed` AS householdinfo_employed,
+     householdinfo.`income` AS householdinfo_income
+FROM
+     `householdinfo` householdinfo
+ORDER BY
+    CASE 
+        WHEN householdinfo.`income` = '100k - 500k' THEN 1
+        WHEN householdinfo.`income` = '500k - 1M' THEN 2
+        WHEN householdinfo.`income` = '1M - 2M' THEN 3
+        WHEN householdinfo.`income` = '2M - 4M' THEN 4
+        WHEN householdinfo.`income` = '4M+' THEN 5
+        ELSE 6
+    END;]]>
+	</queryString>
+	<field name="householdinfo_representative" class="java.lang.String"/>
+	<field name="householdinfo_house_number" class="java.lang.Integer"/>
+	<field name="householdinfo_zone" class="java.lang.String"/>
+	<field name="householdinfo_phoneNumber" class="java.lang.String"/>
+	<field name="householdinfo_householdMembers" class="java.lang.Integer"/>
+	<field name="householdinfo_employed" class="java.lang.String"/>
+	<field name="householdinfo_income" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="493" height="33" forecolor="#000000" uuid="2625fbb2-488e-4ba7-96c6-cf8772d425ee"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Baragay Centro Norte, Alcala, Cagayan
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="63" y="39" width="411" height="22" forecolor="#000000" uuid="ca5e2bf4-d026-4872-bcde-aebaea544722"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[socio-economic data report document]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="e7765e93-e2bd-47ec-9595-f5af1a96dd1f"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="145" height="15" forecolor="#000000" uuid="36b63cb4-483b-4484-add4-bf56351c3750"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Representative]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="144" y="19" width="52" height="15" forecolor="#000000" uuid="12233f34-c46d-4449-93d7-89950092eca0"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[House #]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="197" y="19" width="40" height="15" forecolor="#000000" uuid="acdf33d2-3453-4f44-a4a9-7d7dd83fab98"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Zone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="237" y="19" width="79" height="15" forecolor="#000000" uuid="794daf77-854e-4c42-a0a5-9858478ae04b"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Phone #]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="316" y="19" width="90" height="15" forecolor="#000000" uuid="0f6e4593-3c2d-4253-b39f-bc3ace6f8fc3"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Household mem.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="406" y="19" width="56" height="15" forecolor="#000000" uuid="eea6d706-c711-40db-85ef-94de65a09ff6"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Employed]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="462" y="19" width="91" height="15" forecolor="#000000" uuid="41e852a6-b769-4c3a-bfae-3535c6f119d4"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Annual income(₱)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="09dfb204-ddb7-4bb7-8175-733588d34c43"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="145" height="15" uuid="7c618169-a47f-4f2a-925d-c8b090a04449"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{householdinfo_representative}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="144" y="0" width="53" height="15" uuid="40537273-5acf-40c1-b762-42a4f8570a84"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{householdinfo_house_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="197" y="0" width="40" height="15" uuid="6900045f-fb4c-4ef2-b14f-af3dc0de4e35"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{householdinfo_zone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="237" y="0" width="79" height="15" uuid="93384e9d-b77f-40fa-942b-59c7304e94dd"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{householdinfo_phoneNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="316" y="0" width="90" height="15" uuid="53a90350-443e-438f-ae23-c36fcb5aab42"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{householdinfo_householdMembers}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="406" y="0" width="56" height="15" uuid="93cf091b-1d2e-43ea-b343-f87c95cf4b2d"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{householdinfo_employed}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="462" y="0" width="91" height="15" uuid="6b797496-7380-4228-848f-c142f178a04c"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{householdinfo_income}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="066914ee-dbfb-461f-b753-abe2870b3252"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="cf706817-58b5-4cc9-9fd6-a99930dfeb41"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="1d4e4381-c4f6-4219-9f37-f7afe46140db"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="e76830a8-b75b-412e-9b0c-2d1ed89caa46"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="soceconeprof.dashboardController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="173.0" layoutY="100.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="45.0" prefWidth="200.0" styleClass="semi-top-form" stylesheets="@dashboardDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutY="-1.0" prefHeight="40.0" prefWidth="1100.0" styleClass="top-form" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+                           <children>
+                              <FontAwesomeIcon glyphName="USERS" layoutX="4.0" layoutY="25.0" size="1.5em" />
+                              <Label layoutX="30.0" layoutY="11.0" text="Socio-Economic E-Profiling System">
+                                 <font>
+                                    <Font name="Tahoma" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="close" layoutX="1048.0" layoutY="1.0" mnemonicParsing="false" onAction="#close" prefHeight="25.0" prefWidth="52.0" styleClass="close" stylesheets="@dashboardDesign.css" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="CLOSE" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="minimize" layoutX="1005.0" mnemonicParsing="false" onAction="#minimize" prefHeight="25.0" prefWidth="43.0" styleClass="minimize" stylesheets="@dashboardDesign.css">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="MINUS" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="-21.0" layoutY="78.0" prefHeight="555.0" prefWidth="200.0" styleClass="nav-form" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon glyphName="USER" layoutX="67.0" layoutY="143.0" size="7em" />
+                              <Label layoutX="63.0" layoutY="155.0" text="Welcome,">
+                                 <font>
+                                    <Font name="Tahoma" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="username" alignment="CENTER" layoutX="5.0" layoutY="176.0" prefHeight="23.0" prefWidth="191.0" text="ADMIN">
+                                 <font>
+                                    <Font name="Arial Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="68.0" layoutX="116.0" layoutY="215.0" startX="-100.0" />
+                              <Button fx:id="dashboard_Btn" layoutX="10.0" layoutY="243.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="Dashboard">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="HOME" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="addHousehold_Btn" layoutX="10.0" layoutY="278.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="Add Household">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="PLUS" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="income_Btn" layoutX="11.0" layoutY="313.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="Household Income">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="MONEY" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="logout" layoutX="16.0" layoutY="509.0" mnemonicParsing="false" onAction="#logout" prefHeight="22.0" prefWidth="25.0" stylesheets="@dashboardDesign.css">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="SIGN_OUT" size="2EM" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="logout" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                              <Label layoutX="63.0" layoutY="515.0" text="Logout">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="dashboard_form" layoutX="152.0" layoutY="144.0" prefHeight="555.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="9.0" layoutY="7.0" prefHeight="541.0" prefWidth="883.0" stylesheets="@dashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="1.0" prefHeight="178.0" prefWidth="883.0" stylesheets="@dashboardDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <AnchorPane layoutX="14.0" layoutY="18.0" prefHeight="142.0" prefWidth="262.0" styleClass="card" stylesheets="@dashboardDesign.css">
+                                             <children>
+                                                <FontAwesomeIcon glyphName="USERS" layoutX="14.0" layoutY="88.0" size="4EM" />
+                                                <Label layoutX="66.0" layoutY="101.0" text="Total Population">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="dashboard_totalPopulation" alignment="CENTER_RIGHT" layoutX="17.0" layoutY="14.0" prefHeight="31.0" prefWidth="229.0" text="0">
+                                                   <font>
+                                                      <Font name="Arial" size="26.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="311.0" layoutY="18.0" prefHeight="142.0" prefWidth="262.0" styleClass="card" stylesheets="@dashboardDesign.css">
+                                             <children>
+                                                <FontAwesomeIcon glyphName="HOME" layoutX="14.0" layoutY="88.0" size="4.5em" />
+                                                <Label layoutX="66.0" layoutY="101.0" text="Total Household">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="dashboard_totalHousehold" alignment="CENTER_RIGHT" layoutX="17.0" layoutY="14.0" prefHeight="31.0" prefWidth="229.0" text="0">
+                                                   <font>
+                                                      <Font name="Arial" size="26.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="607.0" layoutY="18.0" prefHeight="142.0" prefWidth="262.0" styleClass="card" stylesheets="@dashboardDesign.css">
+                                             <children>
+                                                <FontAwesomeIcon glyphName="MINUS" layoutX="14.0" layoutY="88.0" size="4EM" />
+                                                <Label layoutX="9.0" layoutY="101.0" text="Total Non-updated Household">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="dashboard_totalNonUpdated" alignment="CENTER_RIGHT" layoutX="17.0" layoutY="14.0" prefHeight="31.0" prefWidth="229.0" text="0">
+                                                   <font>
+                                                      <Font name="Arial" size="26.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <BarChart fx:id="dashboard_chart" layoutX="20.0" layoutY="197.0" prefHeight="330.0" prefWidth="845.0" title="Households Income Chart">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </BarChart>
+                                    <Label layoutX="20.0" layoutY="208.0" text="# of Household">
+                                       <font>
+                                          <Font name="Arial Italic" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <AnchorPane layoutX="213.0" layoutY="500.0" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="160.0" layoutY="-2.0" text="Income" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
+                                             <font>
+                                                <Font name="Arial Italic" size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="addHousehold_form" layoutX="58.0" layoutY="53.0" prefHeight="555.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="12.0" layoutY="11.0" prefHeight="534.0" prefWidth="876.0" stylesheets="@dashboardDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane prefHeight="309.0" prefWidth="876.0" stylesheets="@dashboardDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TextField fx:id="addHousehold_search" layoutX="14.0" layoutY="14.0" onKeyTyped="#addHouseholdSearch" prefHeight="30.0" prefWidth="268.0" promptText="Search" styleClass="search" stylesheets="@dashboardDesign.css" />
+                                          <FontAwesomeIcon glyphName="SEARCH" layoutX="21.0" layoutY="36.0" size="1.5em" />
+                                          <TableView fx:id="addHousehold_tableView" layoutX="11.0" layoutY="57.0" onMouseClicked="#addHouseholdSelect" prefHeight="238.0" prefWidth="854.0">
+                                            <columns>
+                                              <TableColumn fx:id="addHousehold_col_representative" prefWidth="223.0" text="Household's Representative" />
+                                              <TableColumn fx:id="addHousehold_col_houseNumber" prefWidth="71.0" text="House #" />
+                                                <TableColumn fx:id="addHousehold_col_address" prefWidth="62.0" text="Zone" />
+                                                <TableColumn fx:id="addHousehold_col_phoneNumber" prefWidth="164.0" text="Phone #" />
+                                                <TableColumn fx:id="addHousehold_col_houseMembers" prefWidth="133.0" text="Household Members" />
+                                                <TableColumn fx:id="addHousehold_col_employed" minWidth="0.0" prefWidth="79.0" text="Employed" />
+                                                <TableColumn fx:id="addHousehold_col_date" prefWidth="121.0" text="Date Data Input" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <TextField fx:id="addHousehold_houseNumber" layoutX="197.0" layoutY="378.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="93.0" layoutY="381.0" text="House Number:" AnchorPane.topAnchor="381.0">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="341.0" text="Household's Representative:" AnchorPane.topAnchor="341.0">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="93.0" layoutY="461.0" text="Phone Number:" AnchorPane.topAnchor="461.0">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="154.0" layoutY="422.0" text="Zone:" AnchorPane.topAnchor="422.0">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addHousehold_representative" layoutX="197.0" layoutY="338.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <TextField fx:id="addHousehold_phoneNumber" layoutX="197.0" layoutY="458.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <TextField fx:id="addHousehold_address" layoutX="197.0" layoutY="419.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <TextField fx:id="addHousehold_householdMembers" layoutX="574.0" layoutY="337.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label layoutX="375.0" layoutY="340.0" text="Count of Household Members:">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="356.0" layoutY="380.0" text="Count of Employed in Household:">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="addHousehold_employed" layoutX="574.0" layoutY="377.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Button fx:id="addHousehold_addBtn" layoutX="356.0" layoutY="431.0" mnemonicParsing="false" onAction="#addHouseholdAdd" prefHeight="34.0" prefWidth="69.0" stylesheets="@dashboardDesign.css" text="Add">
+                                       <styleClass>
+                                          <String fx:value="add-btn" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                    <AnchorPane layoutX="732.0" layoutY="348.0" prefHeight="110.0" prefWidth="110.0" stylesheets="@dashboardDesign.css">
+                                       <children>
+                                          <ImageView fx:id="addHousehold_image" fitHeight="110.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Button fx:id="addHousehold_importBtn" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#addHouseholdInsertImage" prefHeight="25.0" prefWidth="110.0" styleClass="import-btn" stylesheets="@dashboardDesign.css" text="Insert Image" />
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <Button fx:id="addHousehold_updateBtn" layoutX="435.0" layoutY="431.0" mnemonicParsing="false" onAction="#addHouseholdUpdate" prefHeight="34.0" prefWidth="69.0" stylesheets="@dashboardDesign.css" text="Update">
+                                       <styleClass>
+                                          <String fx:value="update-btn" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="addHousehold_clearBtn" layoutX="534.0" layoutY="431.0" mnemonicParsing="false" onAction="#addHouseholdReset" prefHeight="34.0" prefWidth="69.0" stylesheets="@dashboardDesign.css" text="Clear">
+                                       <styleClass>
+                                          <String fx:value="clear-btn" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="addHousehold_deleteBtn" layoutX="613.0" layoutY="431.0" mnemonicParsing="false" onAction="#addHouseholdDelete" prefHeight="34.0" prefWidth="69.0" stylesheets="@dashboardDesign.css" text="Delete">
+                                       <styleClass>
+                                          <String fx:value="delete-btn" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="income_form" layoutX="138.0" layoutY="58.0" prefHeight="555.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="7.0" layoutY="14.0" prefHeight="527.0" prefWidth="251.0" stylesheets="@dashboardDesign.css" AnchorPane.leftAnchor="5.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="10.0" layoutY="165.0" text="House Number:" AnchorPane.rightAnchor="143.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="20.0" layoutY="101.0" text="Household's" AnchorPane.leftAnchor="20.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="11.0" layoutY="121.0" text="Representative:" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="141.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="12.0" layoutY="276.0" text="Phone Number:" AnchorPane.rightAnchor="142.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="72.0" layoutY="222.0" text="Zone:" AnchorPane.rightAnchor="144.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="53.0" layoutY="322.0" text="Annual" AnchorPane.leftAnchor="50.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="42.0" layoutY="342.0" text="Income(₱):">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="income_houseNumber" layoutX="113.0" layoutY="162.0" prefHeight="25.0" prefWidth="130.0" styleClass="label-info" stylesheets="@dashboardDesign.css" AnchorPane.topAnchor="162.0" />
+                                    <Label fx:id="income_address" layoutX="113.0" layoutY="219.0" prefHeight="25.0" prefWidth="130.0" styleClass="label-info" stylesheets="@dashboardDesign.css" AnchorPane.topAnchor="219.0" />
+                                    <Button fx:id="income_clearBtn" layoutX="29.0" layoutY="378.0" mnemonicParsing="false" onAction="#incomeReset" prefHeight="42.0" prefWidth="91.0" stylesheets="@dashboardDesign.css" text="Clear">
+                                       <styleClass>
+                                          <String fx:value="clear-btn" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="income_updateBtn" layoutX="138.0" layoutY="378.0" mnemonicParsing="false" onAction="#incomeUpdate" prefHeight="42.0" prefWidth="91.0" stylesheets="@dashboardDesign.css" text="Update">
+                                       <styleClass>
+                                          <String fx:value="update-btn" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                    <ComboBox fx:id="income_income" layoutX="113.0" layoutY="329.0" onAction="#income_incomeList" prefHeight="25.0" prefWidth="130.0" promptText="Choose" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                    <Label fx:id="income_representative" layoutX="113.0" layoutY="108.0" prefHeight="25.0" prefWidth="130.0" styleClass="label-info" stylesheets="@dashboardDesign.css" />
+                                    <Label fx:id="income_phoneNum" layoutX="113.0" layoutY="273.0" prefHeight="25.0" prefWidth="130.0" styleClass="label-info" stylesheets="@dashboardDesign.css" />
+                                    <TextField fx:id="income_search" layoutX="14.0" layoutY="46.0" onKeyTyped="#incomeSearch" prefHeight="33.0" prefWidth="223.0" promptText="Search" styleClass="search" stylesheets="@dashboardDesign.css" />
+                                    <FontAwesomeIcon glyphName="SEARCH" layoutX="21.0" layoutY="68.0" size="1.4em" />
+                                    <Button fx:id="income_report" layoutX="30.0" layoutY="436.0" mnemonicParsing="false" onAction="#printReport" prefHeight="33.0" prefWidth="199.0" stylesheets="@dashboardDesign.css" text="Generate Table Report" textFill="WHITE">
+                                       <styleClass>
+                                          <String fx:value="update-btn2" />
+                                          <String fx:value="shadow" />
+                                       </styleClass></Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="265.0" layoutY="14.0" prefHeight="527.0" prefWidth="627.0" stylesheets="@dashboardDesign.css" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="8.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="income_tableView" layoutX="15.0" layoutY="8.0" onMouseClicked="#incomeSelect" prefHeight="512.0" prefWidth="603.0">
+                                      <columns>
+                                        <TableColumn fx:id="income_col_representative" prefWidth="211.0" text="Household's Representative" />
+                                        <TableColumn fx:id="income_col_houseNumber" prefWidth="63.0" text="House #" />
+                                          <TableColumn fx:id="income_col_address" prefWidth="60.0" text="Zone" />
+                                          <TableColumn fx:id="income_col_phoneNumber" minWidth="0.0" prefWidth="143.0" text="Phone #" />
+                                          <TableColumn fx:id="income_col_income" prefWidth="125.0" text="Annual Income(₱)" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
